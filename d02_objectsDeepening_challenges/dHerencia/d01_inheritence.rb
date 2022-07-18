@@ -40,8 +40,9 @@ class MonthlyAppointment < Appointment
     @day
   end
 
-  # def occurs_on?(day)
-  # end
+  def occurs_on?(day)
+    day == @day
+  end
 
   def to_s
     "Reunión mensual en #{@location} sobre #{@purpose} el día #{@day} a la(s) #{@hour}:#{@min}."
@@ -49,8 +50,9 @@ class MonthlyAppointment < Appointment
 end
 
 class DailyAppointment < Appointment
-  # def occurs_on?(hour, min)
-  # end
+  def occurs_on?(hour, min)
+    hour == @hour && min == @min
+  end
 
   def to_s
     "Reunión diaria en #{@location} sobre #{@purpose} a la(s) #{@hour}:#{@min}."
@@ -77,8 +79,9 @@ class OneTimeAppointment < Appointment
     @year
   end
 
-  # def occurs_on?(day, month, year)
-  # end
+  def occurs_on?(day, month, year)
+    day == @day && month == @month && year == @year
+  end
 
   def to_s
     "Reunión única en #{@location} sobre #{@purpose} #{@day}/#{@month}/#{@year} a la(s) #{@hour}:#{@min}."
