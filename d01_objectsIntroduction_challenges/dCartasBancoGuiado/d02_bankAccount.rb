@@ -17,11 +17,11 @@
 =end
 
 class BankAccount
-  attr_accessor :user_name
+  attr_accessor :name_bank
 
-  def initialize(user_name, account_number, vip = 0)
+  def initialize(name_bank, account_number, vip = 0)
     raise RangeError, "El número de la cuenta bancaria debe contener 8 dígitos." if account_number.digits.count != 8
-    @user_name = user_name
+    @name_bank = name_bank
     @account_number = account_number
     @vip = vip    
   end
