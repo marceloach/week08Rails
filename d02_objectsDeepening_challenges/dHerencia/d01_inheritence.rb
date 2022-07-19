@@ -6,38 +6,22 @@
 =end
 
 class Appointment
+  attr_reader :location, :purpose, :hour, :min
+
   def initialize(location, purpose, hour, min)
     @location = location
     @purpose = purpose
     @hour = hour
     @min = min
   end
-
-  def location
-    @location
-  end
-
-  def purpose
-    @purpose
-  end
-
-  def hour
-    @hour
-  end
-
-  def min
-    @min
-  end
 end
 
 class MonthlyAppointment < Appointment
+  attr_reader :day
+
   def initialize(location, purpose, hour, min, day)
     super(location, purpose, hour, min)
     @day = day
-  end
-
-  def day
-    @day
   end
 
   def occurs_on?(day)
@@ -60,23 +44,13 @@ class DailyAppointment < Appointment
 end
 
 class OneTimeAppointment < Appointment
+  attr_reader :day, :month, :year
+
   def initialize(location, purpose, hour, min, day, month, year)
     super(location, purpose, hour, min)
     @day = day
     @month = month
     @year = year
-  end
-
-  def day
-    @day
-  end
-
-  def month
-    @month
-  end
-
-  def year
-    @year
   end
 
   def occurs_on?(day, month, year)
